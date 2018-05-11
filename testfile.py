@@ -9,7 +9,8 @@ try:
 except:
     sys.exit(1)
 
-cmd = shlex.split("ps -efa")
+cmd = shlex.split(" ".join(sys.argv[1:]))
+
 proc = subprocess.Popen(cmd, stdout=subprocess.PIPE)
 out, err = proc.communicate()
 if out:
